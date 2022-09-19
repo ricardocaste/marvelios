@@ -10,12 +10,12 @@ import OHHTTPStubs
 import OHHTTPStubsSwift
 
 @testable import MarveliOS
-class HeroeServiceTests: XCTestCase {
+class HeroServiceTests: XCTestCase {
 
-    var heroeService: HeroService!
+    var heroService: HeroService!
 
     override func setUpWithError() throws {
-        self.heroeService = HeroService()
+        self.heroService = HeroService()
     }
 
     func testShoulDecodeAPIResponse() async throws {
@@ -30,7 +30,7 @@ class HeroeServiceTests: XCTestCase {
         do {
 
             // WHEN
-            let res = try await heroeService.getHeroes()
+            let res = try await heroService.getHeroes()
 
             // THEN
             assert(res.heroes.count == 10)
@@ -54,7 +54,7 @@ class HeroeServiceTests: XCTestCase {
 
         do {
             // WHEN
-            _ = try await heroeService.getHeroes()
+            _ = try await heroService.getHeroes()
 
         } catch  ApiError.decode {
 
@@ -77,7 +77,7 @@ class HeroeServiceTests: XCTestCase {
         }
         do {
             // WHEN
-            _ = try await heroeService.getHeroes()
+            _ = try await heroService.getHeroes()
         } catch ApiError.unauthorised {
             // THEN
             assert(true, "Expected Error")
@@ -101,7 +101,7 @@ class HeroeServiceTests: XCTestCase {
 
         do {
             // WHEN
-            _ = try await heroeService.getHeroes()
+            _ = try await heroService.getHeroes()
         } catch ApiError.unknown {
             // THEN
             assert(true, "Expected Error")

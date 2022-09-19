@@ -16,5 +16,5 @@ struct ComicResponse: BackedDecodable {
 
     /// Uses custom path for nested JSON
     @Backed(Path("data", "results"))
-    var comics: [ComicHero]
+    var comics: [Comic]
 }

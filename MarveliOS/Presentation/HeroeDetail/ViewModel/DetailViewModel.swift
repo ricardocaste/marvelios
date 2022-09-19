@@ -17,16 +17,17 @@ class DetailViewModel: BaseViewModel {
 
     let didLoad = PassthroughSubject<DetailViewModel, ApiError>()
     
-    @Published var result: [ComicHero] = [] {
+    @Published var result: [Comic] = [] {
         didSet {
             withAnimation {
-                //comics = result
+                comics = result
                 didLoad.send(self)
             }
         }
     }
     
     @Published var viewModelError: DetailViewModelError?
+    @Published var comics: [Comic] = []
 
     required init(repository: ComicsRepository = DependencyInjector.getComicsRepository()) {
         self.repository = repository
@@ -34,10 +35,10 @@ class DetailViewModel: BaseViewModel {
 
     // MARK: CRUD Methods
 
-    func getComics(name: String = "") async {
+    func getComics(id: String = "") async {
         cleanErrors()
         do {
-            let newResult = try await repository.getComics(name: name)
+            let newResult = try await repository.getComics(id: id)
             result = newResult
         } catch ApiError.offline {
             self.viewModelError = .notConnectedToInternet

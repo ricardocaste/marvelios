@@ -31,8 +31,8 @@ struct DetailView: View {
                     Header(title: "Comics")
                     ScrollView (.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(hero.comics, id: \.self) { comic in
-                                Cell(image: hero.imagePath, text: comic.name)
+                            ForEach(viewmodel.comics, id: \.self) { comic in
+                                Cell(image: comic.imageURL.absoluteString, text: comic.title)
                             }
                         }
                     }
@@ -74,6 +74,11 @@ struct DetailView: View {
             }
             .navigationTitle(hero.name)
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear() {
+                Task {
+                    await viewmodel.getComics(id: String(hero.id))
+                }
+            }
         }
     }
 }
@@ -93,7 +98,7 @@ struct Cell: View {
     let text: String
     var body: some View {
         VStack {}
-        .frame(width: 200, height: 100)
+        .frame(width: 200, height: 150)
         .background(
             CachedAsyncImage(url: URL(string: image), content: { image in
                 image.brandedDetail()

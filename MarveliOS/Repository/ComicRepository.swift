@@ -18,7 +18,7 @@ class ComicsRepository: Repository {
         self.service = service
     }
 
-    func getComics(name: String) async throws -> [ComicHero] {
-        return try await self.service.getComicsHero(name: name).comics
+    func getComics(id: String) async throws -> [Comic] {
+        return try await self.service.getComicsHero(id: id).comics
     }
 }

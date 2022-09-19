@@ -10,7 +10,7 @@ import CryptoKit
 
 enum Router: Equatable {
     case heroes(offset: String = "0", limit: String = "10")
-    case comics(name: String)
+    case comics(id: String)
     case image(destination: String)
 
     var url: String {API.URL + path}
@@ -19,8 +19,8 @@ enum Router: Equatable {
         switch self {
         case .heroes:
             return "/characters"
-        case .comics:
-            return "/comics"
+        case .comics(let id):
+            return "/characters/\(id)/comics"
         case .image(let destination):
             return destination
         }
@@ -34,11 +34,10 @@ enum Router: Equatable {
                     URLQueryItem(name: "hash", value: API.hash),
                     URLQueryItem(name: "limit", value: limit),
                     URLQueryItem(name: "offset", value: offset )]
-        case .comics(let name):
+        case .comics(_):
             return [URLQueryItem(name: "ts", value: API.timeStamp),
                     URLQueryItem(name: "apikey", value: API.publicKey),
-                    URLQueryItem(name: "hash", value: API.hash),
-                    URLQueryItem(name: "titleStartsWith", value: name)]
+                    URLQueryItem(name: "hash", value: API.hash)]
         default :
             return [URLQueryItem(name: "ts", value: API.timeStamp),
                     URLQueryItem(name: "apikey", value: API.publicKey),
@@ -56,8 +55,6 @@ enum Router: Equatable {
             return "GET"
         }
     }
-    
-   
 }
 
 struct API {

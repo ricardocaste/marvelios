@@ -11,7 +11,8 @@ import BackedCodable
 /// Using BackedDecodable in order to decode nested JSON with property wrappers
 struct Hero: BackedDecodable, Identifiable, Hashable, Comparable {
 
-    var id: String = UUID().uuidString
+    @Backed()
+    var id: Int // = UUID().uuidString
 
     @Backed()
     var name: String
@@ -43,9 +44,9 @@ struct Hero: BackedDecodable, Identifiable, Hashable, Comparable {
     }
 
     // swiftlint:disable:next line_length
-    init(id: String, name: String, description: String, imageURLString: String, comics: [ComicHero], series: [Serie], events: [Event]) {
+    init(id: Int, name: String, description: String, imageURLString: String, comics: [ComicHero], series: [Serie], events: [Event]) {
 
-        self.id = id
+        self.$id = id
         self.$name = name
         self.$description = description
 
@@ -80,7 +81,7 @@ extension Hero {
     }
 
     static var random: Hero {
-        Hero(id: UUID().uuidString,
+        Hero(id: 0,
             name: "This hero is a test",
             description: "This is a description for a random user",
             imageURLString: "http://i.annihil.us/u/prod/marvel/i/mg/3/80/4c00358ec7548.jpg",
@@ -90,7 +91,7 @@ extension Hero {
     }
 
     static var randomThumbnail: Hero {
-        Hero(id: UUID().uuidString,
+        Hero(id: 1,
             name: "This hero is a test",
             description: "This is a description for a random user",
             imageURLString: "http://i.annihil.us",
@@ -99,16 +100,3 @@ extension Hero {
             events: [])
     }
 }
-
-extension String {
-
-    func path() -> String {
-        return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
-    }
-
-    func fileExtension() -> String {
-        return URL(fileURLWithPath: self).pathExtension
-    }
-}
-
-
