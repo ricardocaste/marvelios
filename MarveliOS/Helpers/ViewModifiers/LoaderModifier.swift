@@ -23,7 +23,7 @@ struct LoaderModifier: ViewModifier {
 
             if isLoading {
                 VStack {
-                    Text("Loading...")
+                    Text("loading".localized)
                     ProgressView()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  MarveliOS
+
+  Created by Ricardo Castellanos on 18/9/22.
+  
+*/
+
+"settings"  = "Settings";
+"loading" = "Loading...";
+"heroes" = "Heroes";
+"general" = "General";
+"developer" = "Developer";
+"coming_soon" = "Coming Soon...";
+"about" = "About";
+"apperance" = "Apperance";
+"dark_apperance" = "Dark";
+"language" = "Language";
+"about_author" = "About the author";
+"select_language" = "Select Language";

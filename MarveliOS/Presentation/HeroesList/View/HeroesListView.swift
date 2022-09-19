@@ -49,7 +49,7 @@ struct HeroesListView: View {
                     .listRowBackground(Color(UIColor.secondarySystemGroupedBackground))
             }.refreshable {
                 await viewmodel.getHeroes(isRefreshing: true)
-            }.navigationTitle("Heroes")
+            }.navigationTitle("heroes".localized)
                 .makeToolbarItems()
         }.navigationViewStyle(.stack)
         .searchable(text: $query) .onChange(of: query) { newQuery in

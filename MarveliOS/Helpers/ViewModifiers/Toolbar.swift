@@ -14,7 +14,7 @@ struct Toolbar: ViewModifier {
         content.toolbar {
             ToolbarItem {
                 NavigationLink(destination: SettingsView()) {
-                    Text("Settings")
+                    Text("settings".localized)
                 }
             }
         }

@@ -16,9 +16,9 @@ struct SettingsView : View {
                     OptionRow(option: settingOption)
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle("settings".localized)
             .themeSwitcher()
-            .navigationBarTitle("Settings")
+            .navigationBarTitle("settings".localized)
     }
 }
 
@@ -50,7 +50,7 @@ struct OptionSettingsView : View {
                     .frame(width: 25, height: 25)
                     .clipped()
                     .aspectRatio(contentMode: .fit)
-                Text(option.title)
+                Text(NSLocalizedString(option.title.localized, comment: "Option title"))
                     .foregroundColor(.blue)
                     .font(.system(size: 18))
             }
@@ -66,7 +66,7 @@ struct OptionInnerDetail: View {
                 OptionInnerView(value: valuesOption)
             }
         }
-        .navigationBarTitle(Text(option.title), displayMode: .inline)
+        .navigationBarTitle(Text(option.title.localized), displayMode: .inline)
     }
 }
 
@@ -75,13 +75,13 @@ struct OptionInnerView: View {
     var body: some View {
         Group() {
             if value.isAddSection && !value.isUseToggle {
-                Section(header: Text(value.headerTitle)) {
+                Section(header: Text(value.headerTitle.localized)) {
                     InnerView(value: value)
                 }
             } else if !value.isAddSection && value.isUseToggle {
                 ToggleView(value: value)
             } else if value.isAddSection && value.isUseToggle {
-                Section(header: Text(value.headerTitle)) {
+                Section(header: Text(value.headerTitle.localized)) {
                     ToggleView(value: value)
                 }
             } else {
@@ -105,7 +105,7 @@ struct ToggleView: View {
                 .aspectRatio(contentMode: .fit)
             
             Toggle(isOn: $toggle.isToggleOn) {
-                Text(value.title)
+                Text(NSLocalizedString(value.title.localized, comment: "Option title"))
                     .foregroundColor(.blue)
                     .font(.system(size: 18))
             }
@@ -125,7 +125,7 @@ struct InnerView: View {
                     .frame(width: 25, height: 25)
                     .clipped()
                     .aspectRatio(contentMode: .fit)
-                Text(value.title)
+                Text(NSLocalizedString(value.title.localized, comment: "Option title"))
                     .foregroundColor(.blue)
                     .font(.system(size: 18))
             }
@@ -133,12 +133,31 @@ struct InnerView: View {
     }
 }
 
+enum Options : String, CaseIterable {
+    case Language = "language"
+    case About = "about"
+}
+
 struct EndView: View {
     let value: InnerOptionValues
     
     var body: some View {
-        return Text("Coming Soon!!!")
-                .font(.system(size: 25))
-     
+        return NavigationViewManager.make(value)
+    }
+}
+
+struct NavigationViewManager {
+    @ViewBuilder
+    static func make(_ value: InnerOptionValues) -> some View {
+        switch value.title {
+        case Options.Language.rawValue:
+            LanguageSettingsView()
+            .navigationTitle(value.title.localized)
+        default:
+            NavigationView {
+                Text("coming_soon".localized).font(.system(size: 25))
+                    .navigationBarTitle(value.title.localized , displayMode: .large)
+            }
+        }
     }
 }

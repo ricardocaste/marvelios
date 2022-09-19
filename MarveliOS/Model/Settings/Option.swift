@@ -24,17 +24,17 @@ struct InnerOptionValues: Codable {
 
 extension Option {
     static let generalValues: [InnerOptionValues] = [
-        .init(title: "About", isAddSection: true, isUseToggle: false, headerTitle: ""),
-        .init(title: "DarkApperance", isAddSection: true, isUseToggle: true, headerTitle: "APPERANCE"),
-        .init(title: "Language & Region", isAddSection: false, isUseToggle: false, headerTitle: ""),
+        .init(title: "about", isAddSection: true, isUseToggle: false, headerTitle: ""),
+        .init(title: "dark_apperance", isAddSection: true, isUseToggle: true, headerTitle: "APPERANCE"),
+        .init(title: "language", isAddSection: false, isUseToggle: false, headerTitle: ""),
     ]
     
     static let developerValues: [InnerOptionValues] = [
-        .init(title: "About the author", isAddSection: true, isUseToggle: false, headerTitle: ""),
+        .init(title: "about_author", isAddSection: true, isUseToggle: false, headerTitle: ""),
     ]
     
     static let options: [Option] = [
-        .init(id: 1, title: "General", isAddSection: false, values: generalValues),
-        .init(id: 2, title: "Developer", isAddSection: false, values: developerValues),
+        .init(id: 1, title: "general", isAddSection: false, values: generalValues),
+        .init(id: 2, title: "developer", isAddSection: false, values: developerValues),
     ]
 }
