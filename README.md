@@ -28,3 +28,10 @@ Marvel App made with SwiftUI, MVVM, Combine
 - [SnapshotTesting:](https://github.com/pointfreeco/swift-snapshot-testing) Swift snapshot testing.
 - [CachedAsyncImages:](https://github.com/lorenzofiamingo/swiftui-cached-async-image) Wrapper for Apple’s AsyncImage class
      to cache images.
+
+## Screenshots
+
+<div id="myimages">
+<img src="Screenshot/1.png" width="300" height="649">
+<img src="Screenshot/2.png" width="300" height="649">
+</div>
