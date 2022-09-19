@@ -11,13 +11,15 @@ Marvel App made with SwiftUI, MVVM, Combine
 - Unit Testing: Network Layer, CoreData, Repository, JSON Decodable
 
 ## TODO: 
-- The app must show the list of Comics of the character: image + name
+- [x] The app must show the list of Comics of the character: image + name
 (Horizontal scroll view)
-- The app must show the list of Events of the character: image + name
+- [ ] The app must show the list of Events of the character: image + name
 (Horizontal scroll view)
-- The app must show the list of Series of the character: image + name
+- [ ] The app must show the list of Series of the character: image + name
 (Horizontal scroll view)
-- More tests
+- [ ] Snapshot tests
+- [ ] UI tests
+- [ ] Mock
 
 
 ## Dependencies:
@@ -26,3 +28,10 @@ Marvel App made with SwiftUI, MVVM, Combine
 - [SnapshotTesting:](https://github.com/pointfreeco/swift-snapshot-testing) Swift snapshot testing.
 - [CachedAsyncImages:](https://github.com/lorenzofiamingo/swiftui-cached-async-image) Wrapper for Apple’s AsyncImage class
      to cache images.
+
+## Screenshots
+
+<div id="myimages">
+<img src="Screenshot/1.png" width="300" height="649">
+<img src="Screenshot/2.png" width="300" height="649">
+</div>
