@@ -11,13 +11,15 @@ Marvel App made with SwiftUI, MVVM, Combine
 - Unit Testing: Network Layer, CoreData, Repository, JSON Decodable
 
 ## TODO: 
-- The app must show the list of Comics of the character: image + name
+- [x] The app must show the list of Comics of the character: image + name
 (Horizontal scroll view)
-- The app must show the list of Events of the character: image + name
+- [ ] The app must show the list of Events of the character: image + name
 (Horizontal scroll view)
-- The app must show the list of Series of the character: image + name
+- [ ] The app must show the list of Series of the character: image + name
 (Horizontal scroll view)
-- More tests
+- [ ] Snapshot tests
+- [ ] UI tests
+- [ ] Mock
 
 
 ## Dependencies:
