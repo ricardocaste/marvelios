@@ -28,7 +28,6 @@ class HeroServiceTests: XCTestCase {
         }
 
         do {
-
             // WHEN
             let res = try await heroService.getHeroes()
 

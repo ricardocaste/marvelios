@@ -39,6 +39,7 @@ struct HeroesListView: View {
                         DetailView(hero: hero)
                     } label: {
                         HeroRow(hero: hero)
+                            .accessibilityIdentifier(AccessibilityIdentifiers.characterListTableView)
                     }.task {
                         // Triggers pagination when reaching bottom
                         if viewmodel.canTriggerPagination(for: hero) {
