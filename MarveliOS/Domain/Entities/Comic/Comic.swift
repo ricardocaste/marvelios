@@ -9,15 +9,12 @@ import Foundation
 import BackedCodable
 
 /// Using BackedDecodable in order to decode nested JSON with property wrappers
-struct Comic: BackedDecodable, Identifiable, Hashable, Comparable {
+struct Comic: BackedDecodable, Hashable {
 
     var id: String = UUID().uuidString
 
     @Backed()
     var title: String
-
-//    @Backed()
-//    var description: String
 
     /// Uses custom path for nested JSON
     @Backed(Path("thumbnail", "path"))
@@ -37,22 +34,10 @@ struct Comic: BackedDecodable, Identifiable, Hashable, Comparable {
     init(id: String, title: String, description: String, imageURLString: String) {
         self.id = id
         self.$title = title
-//        self.$description = description
 
         let urlExtension = imageURLString.fileExtension()
         self.$imageExtension = urlExtension
         self.$imagePath = imageURLString.replacingOccurrences(of: ".\(urlExtension)", with: "")
-    }
-
-    static func == (lhs: Comic, rhs: Comic) -> Bool {
-        lhs.id == rhs.id// &&
-//        lhs.title == rhs.title &&
-//        lhs.imageURL == rhs.imageURL &&
-//        lhs.description == rhs.description
-    }
-
-    static func < (lhs: Comic, rhs: Comic) -> Bool {
-        lhs.title < rhs.title
     }
 }
 
