@@ -5,6 +5,7 @@ Marvel App made with SwiftUI, MVVM, Combine
 - MVVM
 - Combine
 - SwiftUI
+- Clean Architecture
 - Realtime Localization
 - Theme Switcher
 - Repository and Dependency Injection Design Patterns
