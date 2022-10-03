@@ -27,7 +27,7 @@ class HeroListViewTests: XCTestCase {
 //        viewModel.heroes = [Hero.random]
 //        let mockHeroRow = HeroesListView(viewmodel: viewModel)
 //        let vc = UIHostingController(rootView: mockHeroRow)
-//        assertSnapshot(matching: vc, as: .image(on: .iPhoneX), record: true)
+//        assertSnapshot(matching: vc, as: .image(on: .iPhone8), record: true)
 //    }
 //
 //    @MainActor

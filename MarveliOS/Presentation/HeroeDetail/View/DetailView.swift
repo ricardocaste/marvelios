@@ -62,7 +62,6 @@ struct DetailView: View {
                 } else {
                     Header(title: "Events")
                     ScrollView (.horizontal, showsIndicators: false) {
-                        
                         HStack {
                             ForEach(hero.events, id: \.self) { event in
                                 Cell(image: hero.imagePath, text: event.name)

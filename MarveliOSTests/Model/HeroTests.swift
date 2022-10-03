@@ -21,7 +21,6 @@ class HeroTests: XCTestCase {
     
     func testHeroValuesSetProperly() {
         let hero = Hero.random
-        
         XCTAssertEqual(hero.name, "This hero is a test")
     }
 }

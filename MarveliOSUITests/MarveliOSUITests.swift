@@ -49,7 +49,7 @@ class MarveliOSUITests: XCTestCase {
         //TODO: set to Spanish
         
         XCTContext.runActivity(named: "Verifying if 'Configuration' button is visible") { _ in
-            let searchFields = app.textViews["Configuración"]
+            let searchFields = app.label["Configuración"]
             wait(element: searchFields, duration: timeoutDuration) { _ in
                 XCTAssert(searchFields.exists)
                 XCTAssert(searchFields.isHittable)
